@@ -1,0 +1,619 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amrit Pathak | Web Developer</title>
+
+<meta name="description" content="Professional web developer. Website design, blogs and development services.">
+
+<style>
+
+:root{
+--bg:#0f172a;
+--card:#1e293b;
+--text:white;
+--accent:#38bdf8;
+--btn:#22c55e;
+}
+
+body.light{
+--bg:#f1f5f9;
+--card:white;
+--text:#0f172a;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+}
+
+header{
+background:#020617;
+padding:15px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+}
+
+nav{
+background:#1e293b;
+text-align:center;
+padding:10px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+text-align:center;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:36px;
+color:var(--accent);
+}
+
+.search{
+text-align:center;
+margin:30px;
+}
+
+.search input{
+padding:12px;
+width:80%;
+max-width:400px;
+border-radius:5px;
+border:none;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.blog{
+background:var(--card);
+padding:20px;
+margin:20px 0;
+border-radius:10px;
+}
+
+.blog h3{
+color:var(--accent);
+}
+
+.read{
+background:var(--btn);
+padding:8px 15px;
+border:none;
+border-radius:5px;
+color:white;
+margin-top:10px;
+cursor:pointer;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.card{
+background:var(--card);
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.card h3{
+color:var(--accent);
+}
+
+.contact{
+margin-top:40px;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:5px;
+border:none;
+}
+
+button.submit{
+background:#22c55e;
+border:none;
+padding:10px 15px;
+color:white;
+border-radius:5px;
+}
+
+footer{
+background:#020617;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+}
+
+.whatsapp a{
+color:white;
+font-size:22px;
+text-decoration:none;
+}
+
+#blogPopup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+color:white;
+padding:40px;
+overflow:auto;
+}
+
+</style>
+
+</head>
+<style>
+
+:root{
+--bg:#0f172a;
+--card:#1e293b;
+--text:white;
+--accent:#38bdf8;
+--btn:#22c55e;
+}
+
+body.light{
+--bg:#f1f5f9;
+--card:white;
+--text:#0f172a;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+}
+
+header{
+background:#020617;
+padding:15px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+}
+
+nav{
+background:#1e293b;
+text-align:center;
+padding:10px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+text-align:center;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:36px;
+color:var(--accent);
+}
+
+.hero p{
+margin-top:10px;
+}
+
+button.toggle{
+position:fixed;
+top:15px;
+right:15px;
+padding:8px 12px;
+background:#38bdf8;
+border:none;
+border-radius:5px;
+}
+
+.search{
+text-align:center;
+margin:30px;
+}
+
+.search input{
+padding:12px;
+width:80%;
+max-width:400px;
+border-radius:5px;
+border:none;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.blog{
+background:var(--card);
+padding:20px;
+margin:20px 0;
+border-radius:10px;
+}
+
+.blog h3{
+color:var(--accent);
+}
+
+.read{
+background:var(--btn);
+padding:8px 15px;
+border-radius:5px;
+text-decoration:none;
+color:white;
+display:inline-block;
+margin-top:10px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.card{
+background:var(--card);
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.card h3{
+color:var(--accent);
+}
+
+.card button{
+background:var(--btn);
+border:none;
+padding:8px 15px;
+border-radius:5px;
+margin-top:10px;
+color:white;
+}
+
+.contact{
+margin-top:40px;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:5px;
+border:none;
+}
+
+button.submit{
+background:#22c55e;
+border:none;
+padding:10px 15px;
+color:white;
+border-radius:5px;
+}
+
+footer{
+background:#020617;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+}
+
+.whatsapp a{
+color:white;
+font-size:22px;
+text-decoration:none;
+}
+
+.counter{
+margin-top:10px;
+font-size:14px;
+color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<button class="toggle" onclick="toggleMode()">Mode</button>
+
+<header>
+Amrit Pathak Web Developer
+</header>
+
+<nav>
+
+<a href="#blog">Blog</a>
+<a href="#services">Services</a>
+<a href="#contact">Order Website</a>
+
+</nav>
+
+
+<div class="hero">
+
+<h1>Professional Web Developer</h1>
+
+<p>I create blogs, business websites and portfolios.</p>
+
+</div>
+
+
+<div class="search">
+
+<input type="text" id="search" placeholder="Search blog...">
+
+</div>
+
+
+
+
+
+<h2 id="services">Website Services</h2>
+
+
+<div class="services">
+
+
+<div class="card">
+
+<h3>Basic Website</h3>
+
+<p>₹1500</p>
+
+<p>3 Pages Website</p>
+
+<button>Order</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>Business Website</h3>
+
+<p>₹3500</p>
+
+<p>5 Pages + SEO</p>
+
+<button>Order</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>Premium Website</h3>
+
+<p>₹7000</p>
+
+<p>Full Responsive</p>
+
+<button>Order</button>
+
+</div>
+
+
+</div>
+
+
+
+<div class="contact" id="contact">
+
+<h2>Order Website</h2>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Tell me about your website"></textarea>
+
+<button class="submit">Send Request</button>
+
+</div>
+
+</div>
+
+
+
+<div class="whatsapp">
+
+<a href="https://wa.me/918840693028">💬</a>
+
+</div>
+
+<script>
+
+let search=document.getElementById("search");
+
+search.addEventListener("keyup",function(){
+
+let filter=search.value.toLowerCase();
+
+let blogs=document.querySelectorAll(".blog");
+
+blogs.forEach(function(blog){
+
+let text=blog.innerText.toLowerCase();
+
+if(text.includes(filter)){
+blog.style.display="";
+}else{
+blog.style.display="none";
+}
+
+});
+
+});
+
+function toggleMode(){
+document.body.classList.toggle("light");
+}
+
+
+let count=localStorage.getItem("visitorCount");
+
+if(!count){count=1}else{count=parseInt(count)+1}
+
+localStorage.setItem("visitorCount",count)
+
+document.getElementById("count").innerText=count
+
+</script>
+
+
+<header>
+Amrit Pathak Web Developer
+</header>
+
+<div class="container">
+
+<h2>Developer Blogs</h2>
+
+<div class="blog">
+<h3>How to Learn Web Development</h3>
+<p>Start with HTML CSS and JavaScript to build powerful websites.</p>
+<button class="read" onclick="openBlog(1)">Read More</button>
+</div>
+
+<div class="blog">
+<h3>Frontend vs Backend Development</h3>
+<p>Frontend builds the design and backend handles data.</p>
+<button class="read" onclick="openBlog(2)">Read More</button>
+</div>
+
+<div class="blog">
+<h3>How Websites Make Money</h3>
+<p>You can earn money using AdSense, affiliate marketing and freelancing.</p>
+<button class="read" onclick="openBlog(3)">Read More</button>
+</div>
+
+</div>
+
+<div id="blogPopup">
+
+<button onclick="closeBlog()">Close</button>
+
+<h2 id="blogTitle"></h2>
+
+<p id="blogContent"></p>
+
+</div>
+ 
+<footer>
+<div="counter">
+ 
+</div>
+<p>© 2026 Amrit Pathak</p>
+Visitors: <span id="count">0</span>
+</footer>
+
+<script>
+
+function openBlog(id){
+
+let title=document.getElementById("blogTitle");
+let content=document.getElementById("blogContent");
+
+if(id==1){
+
+title.innerText="How to Learn Web Development";
+
+content.innerText="To start web development you should learn HTML CSS and JavaScript. These technologies help you create websites and interactive web applications.";
+
+}
+
+if(id==2){
+
+title.innerText="Frontend vs Backend Development";
+
+content.innerText="Frontend development focuses on user interface using HTML CSS JavaScript while backend development manages server database and logic.";
+
+}
+
+if(id==3){
+
+title.innerText="How Websites Make Money";
+
+content.innerText="Websites can earn money through Google AdSense affiliate marketing freelancing and selling digital products.";
+
+}
+
+document.getElementById("blogPopup").style.display="block";
+
+}
+
+function closeBlog(){
+
+document.getElementById("blogPopup").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>
